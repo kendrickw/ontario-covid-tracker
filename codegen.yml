@@ -1,0 +1,25 @@
+overwrite: true
+schema: 'src/graphql/schema.graphql'
+documents: 'src/graphql/query-mutation/*.ts*'
+generates:
+  src/graphql/generated/server.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-resolvers'
+    config:
+      scalars: { 'GraphQLDate': 'Date' }
+  src/graphql/generated/client.tsx:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-react-apollo'
+    config:
+      withHOC: false
+      withHooks: true
+      withComponent: false
+      withMutationFn: false
+      scalars: { 'GraphQLDate': 'string' }
+  src/graphql/generated/fragmentTypes.json:
+    plugins:
+      - 'fragment-matcher'

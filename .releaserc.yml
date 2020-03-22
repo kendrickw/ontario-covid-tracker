@@ -1,0 +1,7 @@
+plugins:
+  - '@semantic-release/commit-analyzer'
+  - '@semantic-release/release-notes-generator'
+  # Disable npm publish
+  - - '@semantic-release/npm'
+    - npmPublish: false
+  - - '@semantic-release/github'

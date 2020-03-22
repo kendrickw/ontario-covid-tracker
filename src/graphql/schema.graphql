@@ -1,0 +1,33 @@
+scalar GraphQLDate
+
+"""
+Confirmed positive case information
+"""
+type OntarioCase {
+  _id: ID!
+  date: GraphQLDate
+  """
+  Case Number
+  """
+  caseNo: Int
+  """
+  Patient (Age and Gender)
+  """
+  patient: String
+  """
+  Public Health Unit
+  """
+  location: String
+  """
+  Transmission (community, travel or close contact)
+  """
+  transmission: String
+  """
+  Status
+  """
+  status: String
+}
+
+type Query {
+  ontarioCases: [OntarioCase]
+}

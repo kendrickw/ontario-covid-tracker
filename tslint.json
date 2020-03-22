@@ -1,0 +1,15 @@
+{
+  "extends": ["tslint:latest", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["src/graphql/generated/*.ts*", "**/*.json"]
+  },
+  "rules": {
+    "jsx-boolean-value": ["never"],
+    "no-implicit-dependencies": false,
+    "no-submodule-imports": false,
+    "member-access": [true, "no-public"],
+    "jsx-no-lambda": false,
+    "object-literal-sort-keys": false,
+    "interface-name": [true, "never-prefix"]
+  }
+}
