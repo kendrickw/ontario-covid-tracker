@@ -1,6 +1,6 @@
-# React Starter Kit
+# Ontario COVID-19 Tracker
 
-React Starter Kit
+Ontario COVID-19 Tracker
 
 ## Prerequisites
 
@@ -31,25 +31,29 @@ yarn build
 yarn start
 ```
 
-## deploy to Microsoft Azure
+## deploy to Google Cloud
 
-In Azure:
-
-- create Resource Group `<group-name>`
-- create App Service `<app-name>`
-
-In the Azure Cloud Shell:
+Install google cloud SDK:
 
 ```shell
-az webapp deployment user set --user-name <username> --password <password>
-az webapp deployment source config-local-git --name <app-name> --resource-group <group-name>
+brew tap homebrew/cask
+brew cask install google-cloud-sdk
 ```
 
-In the local terminal, add the newly craeted remote git URL to your local git repository:
+This app require the following google cloud APIs:
+
+- App Engine
+
+Refer to [Setup Google Cloud APIs](#setup-google-cloud-apis) for more information.
+
+To deploy: (Enable Billing if you haven't already)
 
 ```shell
-git remote add azure https://<username>@<app-name>.scm.azurewebsites.net/<app-name>.git
-git push azure master
+gcloud auth login
+gcloud app deploy --project [YOUR_PROJECT_ID]
 ```
 
-When asked for the password, specify the password created when setting up your deployment user.
+To disable app (and stop billing):
+
+- In GCP, goto 'App Engine'... 'Settings'... 'Disable application'
+- In GCP, goto 'Billing'... 'Manage Billing'.... 'Disable billing'

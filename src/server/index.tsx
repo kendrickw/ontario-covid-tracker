@@ -10,6 +10,7 @@ import boom from 'express-boom';
 import morgan from 'morgan';
 import ms from 'ms';
 import passport from 'passport';
+import path from 'path';
 import React from 'react';
 import { ApolloProvider, getDataFromTree } from 'react-apollo';
 import { renderToString } from 'react-dom/server';
@@ -37,11 +38,15 @@ const syncLoadAssets = () => {
 syncLoadAssets();
 
 const authEnabled = config.get('auth.enable');
+const staticPath =
+  process.env.NODE_ENV === 'production'
+    ? path.join(__dirname, '..', 'build', 'public')
+    : process.env.RAZZLE_PUBLIC_DIR!;
 
 // Avoid using any session objects to keep server stateless
 const server = express()
   .disable('x-powered-by')
-  .use(express.static(process.env.RAZZLE_PUBLIC_DIR!))
+  .use(express.static(staticPath))
   .use(morgan('dev'))
   .use(bodyParser.json())
   .use(bodyParser.urlencoded({ extended: false }))

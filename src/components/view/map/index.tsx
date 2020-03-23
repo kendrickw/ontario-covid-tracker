@@ -21,9 +21,18 @@ const Map = () => {
     return null;
   }
 
+  const { ontarioCases } = data;
+  if (!ontarioCases) {
+    return null;
+  }
+
   return (
     <Container direction="column">
-      <StringField value={JSON.stringify(data)} readOnly />
+      <ul>
+        {ontarioCases.map((caseInfo) => (
+          <li>{JSON.stringify(caseInfo)}</li>
+        ))}
+      </ul>
     </Container>
   );
 };
