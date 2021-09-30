@@ -50,7 +50,7 @@
     "graphql": "^14.4.2",
     "graphql-import": "^0.7.1",
     "graphql-iso-date": "^3.6.1",
-    "handsontable": "^7.4.2",
+    "handsontable": "^10.0.0",
     "immutability-helper": "^3.0.0",
     "json5": "^2.1.0",
     "jsonwebtoken": "^8.4.0",
